@@ -2,7 +2,7 @@
 #include<iostream>
 #include<fstream>
 #include<cstdlib> // rand()
-#include <string>
+#include<string>
 
 
 Fraction :: Fraction(){
@@ -14,10 +14,13 @@ Fraction :: Fraction(int n , int d){
     
     num = n;
     den = d;
-    
-    
-    
+    reduce_fraction();
+    convert_fraction();
 }
+
+
+
+
 
 
 double Fraction :: todecimal(){
@@ -39,13 +42,20 @@ void Fraction :: reduce_fraction(){
 }
 
 
-String  Fraction :: convert_fraction(){
-    if(num > den){
-        
-       int whole_num = num / den;
-       int mixed_numerator = num % den;
-       
-        return whole_num + mixed_numerator / den;
+
+
+
+
+
+
+
+
+string Fraction :: convert_fraction(){
+    
+   
+    
+    
+return " " + std::to_string(num); +  + "/" + std::to_string(den);
         
     }
     
@@ -54,15 +64,13 @@ String  Fraction :: convert_fraction(){
     
     
     
-    
-}
 
 
 
 
 
 
-Fraction Fraction :: sum(Fraction frac1, Fraction frac2){
+/*Fraction Fraction :: sum(Fraction frac1, Fraction frac2){
     
     int den = frac1.den * frac2.den;
     int num1 = frac1.num * frac2.den;
@@ -76,3 +84,4 @@ Fraction Fraction :: sum(Fraction frac1, Fraction frac2){
     
  
 }
+*/
