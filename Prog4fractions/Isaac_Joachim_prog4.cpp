@@ -31,17 +31,21 @@ int main(){
     // Calculate a sum, difference, product, and quotient
     // C++ provides a default assignment operator for a class you define
       // sum = f1 + f3;
-      // difference = f4 - f2;
-     //product = f1 * f2;
-      // quotient = f5 / f3;
+    // difference = f4 - f2;
+    //product = f1 * f2;
+    // quotient = f5 / f3;
     
     
     
      //Display the results
-     outfile << f1 << " + " << f3 << " = " << sum << endl << endl;
-     outfile <<  f4 << " - " << f2 << " = " << difference << endl << endl;
-     outfile << f1 << " * " << f2 << " = " << product << endl << endl;
-     outfile << f5 << " divided by " << f3 << " = " << quotient << endl << endl;
+    outfile << f1 << " + " << f3 << " = " <<endl;
+    //sum << endl << endl;
+    outfile <<  f4 << " - " << f2 << " = " <<endl;
+    //difference << endl << endl;
+    outfile << f1 << " * " << f2 << " = " << endl;
+    //product << endl << endl;
+    outfile << f5 << " divided by " << f3 << " = " <<endl;
+    //quotient << endl << endl;
      
     
      //Express a fraction as a decimal

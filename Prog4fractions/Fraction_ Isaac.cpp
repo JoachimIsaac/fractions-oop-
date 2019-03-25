@@ -20,6 +20,7 @@ Fraction :: Fraction( int n ,  int d){
     
     num = n;
     den = d;
+    reduce_fraction();
     ostream& operator<<(ostream &out, Fraction f);
 }
 
@@ -125,7 +126,8 @@ string  Fraction :: to_string(int n){
 
 ostream& operator<<(ostream &out, Fraction f)
 {
-    out << " " << f.num << "/" << f.den;
+    out << f.num << "/" << f.den;
+    
     return out;
 }
 
