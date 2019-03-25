@@ -8,6 +8,7 @@ private:
     int num,den;
     
 public:
+    friend std::ostream& operator<<(std::ostream &out, Fraction f);
     Fraction();
     Fraction(int n , int d);
     double toDecimal();
@@ -20,5 +21,8 @@ public:
     
     int  getNumerator();
     int  getDenominator();
+    
+    string to_string(int n);
+    
     
 };

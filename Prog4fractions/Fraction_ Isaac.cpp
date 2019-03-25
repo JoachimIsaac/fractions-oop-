@@ -20,7 +20,7 @@ Fraction :: Fraction( int n ,  int d){
     
     num = n;
     den = d;
-    cout << " " << num << "/" << den;
+    ostream& operator<<(ostream &out, Fraction f);
 }
 
 
@@ -59,6 +59,10 @@ string Fraction :: convert_fraction(){
 */
 
  void Fraction::Print_fraction(){
+     
+     
+     
+  cout << " " <<getNumerator() << "/" << getDenominator();
 }
 
 
@@ -99,15 +103,31 @@ int Fraction :: getNumerator(){
 }
 
 
-int Fraction:: getDenominator(int d){
+int Fraction :: getDenominator(){
     
     return den;
 }
 
 
+/*
 
+string  Fraction :: to_string(int n){
+    
+  
+        ostringstream ss;
+        ss << n;
+        return ss.str();
+  
+    
+}
 
+*/
 
+ostream& operator<<(ostream &out, Fraction f)
+{
+    out << " " << f.num << "/" << f.den;
+    return out;
+}
 
 
 /*Fraction Fraction :: sum(Fraction frac1, Fraction frac2){
