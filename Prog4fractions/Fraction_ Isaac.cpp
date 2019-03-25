@@ -44,7 +44,6 @@ void Fraction :: reduce_fraction(){
         }
     }
     
-    
 }
 
 //work on the convertion to string
@@ -110,25 +109,19 @@ int Fraction :: getDenominator(){
 }
 
 
-/*
-
-string  Fraction :: to_string(int n){
+void Fraction :: convertion(){
     
-  
-        ostringstream ss;
-        ss << n;
-        return ss.str();
-  
+    
     
 }
 
-*/
-
 ostream& operator<<(ostream &out, Fraction f)
 {
+   
     out << f.num << "/" << f.den;
     
     return out;
+    
 }
 
 

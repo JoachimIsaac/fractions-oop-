@@ -22,7 +22,9 @@ public:
     int  getNumerator();
     int  getDenominator();
     
-    string to_string(int n);
+   
+    
+    void convertion();
     
     
 };
