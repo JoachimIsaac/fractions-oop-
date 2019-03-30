@@ -14,10 +14,9 @@ public:
     double toDecimal();
     void reduce_fraction();
     string convert_fraction();
-    void Print_fraction();
     
-    void  setNumerator(int n);
-    void  setDenominator(int d);
+    
+    void set_num_and_den(int n, int d);
     
     int  getNumerator();
     int  getDenominator();

@@ -20,10 +20,7 @@ Fraction :: Fraction( int n ,  int d){
     
     num = n;
     den = d;
-    setNumerator(n);
-    setDenominator(d);
-    reduce_fraction();
-   
+    set_num_and_den(n,d);
 }
 
 
@@ -38,15 +35,25 @@ double Fraction :: toDecimal(){
 
 
 void Fraction :: reduce_fraction(){
-    
-    for(int i = den * num; i > 1; i --){
-        if ((den % i == 0) && (num % i == 0)){
-            den /= i;
-            num /= i;
-        }
+    int a = num;
+    int b = den;
+    while (b != 0){
+        int temp = a % b;
+        a = b;
+        b = temp;
     }
+    /*
+     a is the greatest common divisor
+     the abs() function - returns the absolute value
+     */
+    num = num/ abs(a);
+    den = den / abs(a);
     
 }
+
+
+
+
 
 //work on the convertion to string
 /*
@@ -60,12 +67,6 @@ string Fraction :: convert_fraction(){
 }
 */
 
- void Fraction::Print_fraction(){
-     
-     
-     
-  cout << " " <<getNumerator() << "/" << getDenominator();
-}
 
 
 
@@ -77,39 +78,39 @@ string Fraction :: convert_fraction(){
 
 
 
- void Fraction ::  setNumerator(int n){
-    
-    if( n < 0 ){
-        num = 0;
-    }
-    else{
-        num = n;
-    }
-}
-
-void Fraction :: setDenominator(int d){
-    
-    if(d == 0){
-        
+void Fraction :: set_num_and_den(int n, int d){
+    //prevent division by zero
+    if(0 == den){
         den = 1;
     }
-    else {
-        den = d;
+    //change the values of numerator & denominator
+    num = n;
+    den = d;
+    /*
+     if denominator is negative,
+     set it to positive and set numerator to negative
+     */
+    if(den < 0) {
+        den = -den;
+        num = -num;
     }
-    
+    //reduce Fraction to lowest terms
+    reduce_fraction();
 }
 
 
-int Fraction :: getNumerator(){
-    
-    return num;
-}
 
 
-int Fraction :: getDenominator(){
+//int Fraction :: getNumerator(){
     
-    return den;
-}
+ //   return num;
+//}
+
+
+//int Fraction :: getDenominator(){
+    
+//    return den;
+//}
 
 
 void Fraction :: convertion(){
@@ -150,16 +151,35 @@ ostream& operator<<(ostream &out, Fraction f)
         out << wholenumber;
         
     }
-    else if((f.num > 0) && (f.den > 1) && (f.num / f. den > 0)){
+    else if(((f.num > 0) && (f.den > 1) && (f.num / f. den > 0)) || (f.num < 0 || f.den < 0)){
         
         int wholenumber = f.num / f.den;
         int  new_num = f.num % f.den;
-        
+        if (f.den > 0 && f.num > 0){
         out << wholenumber << " " << new_num << "/" << f.den;
-        
-        
-        
+        }
+        else{
+           int wholenumber = f.num / f.den;
+           int new_num = f.num % f.den;
+    //This sets the numerator positive so that it won't have two negative signs.
+            if(wholenumber > 0 || wholenumber < 0){
+            wholenumber = wholenumber;
+            new_num = -(new_num);
+
+        out << wholenumber << " " <<  new_num <<  "/" << f.den;
+            }
+            //if whole number equal zero it doesn't print it and prints out a minus
+            //with the remaining fraction.
+            else {
+                new_num = -(new_num);
+                
+                out << "-" <<  new_num <<  "/" << f.den;
+                
+                
+            }
+        }
     }
+    
     else if( f.num == 0){
         
         out << f.num;
