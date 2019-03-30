@@ -20,6 +20,8 @@ Fraction :: Fraction( int n ,  int d){
     
     num = n;
     den = d;
+    setNumerator(n);
+    setDenominator(d);
     reduce_fraction();
    
 }
@@ -86,7 +88,8 @@ string Fraction :: convert_fraction(){
 }
 
 void Fraction :: setDenominator(int d){
-    if(d <= 0){
+    
+    if(d == 0){
         
         den = 1;
     }
@@ -118,14 +121,13 @@ void Fraction :: convertion(){
 ostream& operator<<(ostream &out, Fraction f)
 {   //prints out a fraction which doesn't simplify to a mixed fraction or
     //whole number.
-    if((f.num > 0) && (f.den > 1) && ((f.num / f. den) < 0)){
-    out << f.num << "/" << f.den;
-    
+    //if((f.num > 0) && (f.den > 1) && ((f.num / f. den) < 0)){
+   // out << f.num << "/" << f.den;
   
-    }
+   // }
     //when the fraction has a nummerator that is higher than the denominator and the
     //denominator equals zero. it prints out the whole number answer.
-    else if ( (f.num > f.den) && (f.den == 1)){
+    if ( (f.num > f.den) && (f.den == 1)){
         int wholenumber = f.num/f.den;
         
         out << wholenumber;
@@ -163,7 +165,13 @@ ostream& operator<<(ostream &out, Fraction f)
         out << f.num;
         
     }
-    else
+    else if(f.den == 0 ){
+        out << "undefined ";
+    }
+    else{
+        
+        out << f.num << "/" << f.den;
+    }
         
         
         
