@@ -17,7 +17,7 @@ int main(){
     
     // Instantiate 6 Fraction objects using a parameterized constructor
     Fraction f1(2, 3), f2(3, 4), f3(6, 30), f4(30, 12), f5(6,2), f6(9, 0);
-    
+
     // Instantiate 4 Fraction objects using the default constructor
     // These objects will hold arithmetic results
     Fraction sum, difference, product, quotient;
@@ -30,22 +30,22 @@ int main(){
     
     // Calculate a sum, difference, product, and quotient
     // C++ provides a default assignment operator for a class you define
-      // sum = f1 + f3;
-    // difference = f4 - f2;
+       sum = f1 + f3;
+      difference = f4 - f2;
       product = f1 * f2;
-    // quotient = f5 / f3;
+     quotient = f5 / f3;
     
     
     
      //Display the results
-    outfile << f1 << " + " << f3 << " = " <<endl;
-    //sum << endl << endl;
-    outfile <<  f4 << " - " << f2 << " = " <<endl;
-    //difference << endl << endl;
-    outfile << f1 << " * " << f2 << " = " << product << endl;
+    outfile << f1 << " + " << f3 << " = " << sum <<endl << endl;
+   
+    outfile <<  f4 << " - " << f2 << " = " << difference <<endl << endl;
+ 
+    outfile << f1 << " * " << f2 << " = " << product << endl<< endl;
     
-    outfile << f5 << " divided by " << f3 << " = " <<endl;
-    //quotient << endl << endl;
+    outfile << f5 << " divided by " << f3 << " = " << quotient << endl << endl;
+  
      
     
      //Express a fraction as a decimal

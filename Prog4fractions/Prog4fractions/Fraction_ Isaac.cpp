@@ -16,6 +16,7 @@ Fraction :: Fraction(){
     
 }
 
+
 Fraction :: Fraction( int n ,  int d){
     
     num = n;
@@ -50,12 +51,6 @@ void Fraction :: reduce_fraction(){
     den = den / abs(a);
     
 }
-
-
-
-
-
-
 
 
 void Fraction :: set_num_and_den(int n, int d){
@@ -177,7 +172,7 @@ ostream& operator<<(ostream &out, Fraction f)
 }
 
 
-Fraction Fraction :: operator *(const Fraction &b){
+Fraction Fraction :: operator * (const Fraction &b){
     
     Fraction product;
     
@@ -199,10 +194,93 @@ Fraction Fraction :: operator *(const Fraction &b){
     product.den = product.den / abs(a);
     
     return product;
-    
-    
-    
 }
- 
+
+Fraction Fraction :: operator + (const Fraction &s){
+    
+    Fraction sum;
+    
+    
+    if(den == s.den){
+        sum.num = num + s.num;
+        sum.den = den;
+    
+    }
+    else{
+        
+        sum.num = (num * s.den) + (s.num * den);
+        sum.den = (den * s.den);
+    }
+    int a = sum.num;
+    int c = sum.den;
+    while (c != 0){
+        int temp = a % c;
+        a = c;
+        c = temp;
+    }
+    /*
+     a is the greatest common divisor
+     the abs() function - returns the absolute value
+     */
+    sum.num = sum.num/ abs(a);
+    sum.den = sum.den / abs(a);
+    
+    return sum;
+}
 
 
+Fraction Fraction :: operator - (const Fraction &m){
+    
+    Fraction difference;
+    
+    
+    if(den == m.den){
+        difference.num = num - m.num;
+        difference.den = den;
+        
+    }
+    else{
+        
+        difference.num = (num * m.den) - (m.num * den);
+        difference.den = (den * m.den);
+    }
+    int a = difference.num;
+    int c = difference.den;
+    while (c != 0){
+        int temp = a % c;
+        a = c;
+        c = temp;
+    }
+    /*
+     a is the greatest common divisor
+     the abs() function - returns the absolute value
+     */
+    difference.num = difference.num/ abs(a);
+    difference.den = difference.den / abs(a);
+    
+    return difference;
+}
+
+Fraction Fraction :: operator / (const Fraction &q){
+    
+    Fraction quotient;
+    
+    quotient.num = num * q.den;
+    quotient.den = den * q.num;
+    
+    int a = quotient.num;
+    int c = quotient.den;
+    while (c != 0){
+        int temp = a % c;
+        a = c;
+        c = temp;
+    }
+    /*
+     a is the greatest common divisor
+     the abs() function - returns the absolute value
+     */
+    quotient.num = quotient.num/ abs(a);
+    quotient.den = quotient.den / abs(a);
+    
+    return quotient;
+}

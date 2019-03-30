@@ -25,7 +25,13 @@ public:
     
     void convertion();
     
-    Fraction operator*(const Fraction &b);
+    Fraction operator * (const Fraction &b);
+    
+    Fraction operator + (const Fraction &s);
+    
+    Fraction operator - (const Fraction &m);
+    
+    Fraction operator / (const Fraction &q);
     
     void reduce_fraction_result();
     
