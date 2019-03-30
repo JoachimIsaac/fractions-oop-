@@ -21,7 +21,14 @@ Fraction :: Fraction( int n ,  int d){
     
     num = n;
     den = d;
-    set_num_and_den(n,d);
+    //set_num_and_den(n,d);
+    setNumerator(n);
+    setDenominator(d);
+    
+    //reduce Fraction to lowest terms
+    reduce_fraction();
+    
+    
 }
 
 
@@ -72,6 +79,33 @@ void Fraction :: set_num_and_den(int n, int d){
     //reduce Fraction to lowest terms
     reduce_fraction();
 }
+
+void Fraction :: setNumerator (int n){
+    
+    num = n;
+}
+
+void Fraction :: setDenominator (int d){
+    
+    den = d;
+    
+    
+    if(0 == den){
+        den = 1;
+    }
+    
+    if(den < 0) {
+        den = -den;
+        num = -num;
+    }
+    
+    
+    
+}
+    
+    
+    
+
 
 
 

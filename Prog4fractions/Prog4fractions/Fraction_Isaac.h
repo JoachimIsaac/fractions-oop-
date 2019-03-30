@@ -21,6 +21,8 @@ public:
     int  getNumerator();
     int  getDenominator();
     
+    void  setNumerator(int n);
+    void  setDenominator (int d);
    
     
     void convertion();

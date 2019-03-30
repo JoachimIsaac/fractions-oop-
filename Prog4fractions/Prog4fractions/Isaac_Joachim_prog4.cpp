@@ -16,8 +16,8 @@ int main(){
     outfile << "Joachim Isaac's Fraction Class\n\n";
     
     // Instantiate 6 Fraction objects using a parameterized constructor
-    Fraction f1(2, 3), f2(3, 4), f3(6, 30), f4(30, 12), f5(6,2), f6(9, 0);
-
+    Fraction f1(8, 3), f2(3, 4), f3(6, 30), f4(30, 12), f5(6,2), f6(9, 0);
+//f1(2, 3)
     // Instantiate 4 Fraction objects using the default constructor
     // These objects will hold arithmetic results
     Fraction sum, difference, product, quotient;
