@@ -55,26 +55,6 @@ void Fraction :: reduce_fraction(){
 
 
 
-//work on the convertion to string
-/*
-string Fraction :: convert_fraction(){
-     std::to_string(num);
-     std::to_string(den);
-    
-    
-    return " " + num + "/" + den;
-    
-}
-*/
-
-
-
-
-
-
-
-
-
 
 
 
@@ -193,26 +173,36 @@ ostream& operator<<(ostream &out, Fraction f)
         out << f.num << "/" << f.den;
     }
         
-        
-        
-        
         return out;
-    
-    
 }
 
 
-/*Fraction Fraction :: sum(Fraction frac1, Fraction frac2){
+Fraction Fraction :: operator *(const Fraction &b){
+    
+    Fraction product;
+    
+    product.num = num * b.num;
+    product.den = den * b.den;
+    
+    int a = product.num;
+    int c = product.den;
+    while (c != 0){
+        int temp = a % c;
+        a = c;
+        c = temp;
+    }
+    /*
+     a is the greatest common divisor
+     the abs() function - returns the absolute value
+     */
+    product.num = product.num/ abs(a);
+    product.den = product.den / abs(a);
+    
+    return product;
+    
+    
+    
+}
  
- int den = frac1.den * frac2.den;
- int num1 = frac1.num * frac2.den;
- int num2 = frac2.num * frac1.den;
- 
- Fraction f = Fraction(num1 + num2,den);
- f.reduce_fraction();
- 
- 
- 
- 
- }
- */
+
+

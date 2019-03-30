@@ -16,8 +16,8 @@ int main(){
     outfile << "Joachim Isaac's Fraction Class\n\n";
     
     // Instantiate 6 Fraction objects using a parameterized constructor
-    Fraction f1(100,-56 ), f2(3, 4), f3(6, 30), f4(30, 12), f5(6,2), f6(9, 0);
-    //f1(2, 3)
+    Fraction f1(2, 3), f2(3, 4), f3(6, 30), f4(30, 12), f5(6,2), f6(9, 0);
+    
     // Instantiate 4 Fraction objects using the default constructor
     // These objects will hold arithmetic results
     Fraction sum, difference, product, quotient;
@@ -26,13 +26,13 @@ int main(){
     Fraction f[10];
     
     // Variable to hold seed for random number generator
-    unsigned int theSeed;
+   // unsigned int theSeed;
     
     // Calculate a sum, difference, product, and quotient
     // C++ provides a default assignment operator for a class you define
       // sum = f1 + f3;
     // difference = f4 - f2;
-    //product = f1 * f2;
+      product = f1 * f2;
     // quotient = f5 / f3;
     
     
@@ -42,8 +42,8 @@ int main(){
     //sum << endl << endl;
     outfile <<  f4 << " - " << f2 << " = " <<endl;
     //difference << endl << endl;
-    outfile << f1 << " * " << f2 << " = " << endl;
-    //product << endl << endl;
+    outfile << f1 << " * " << f2 << " = " << product << endl;
+    
     outfile << f5 << " divided by " << f3 << " = " <<endl;
     //quotient << endl << endl;
      
