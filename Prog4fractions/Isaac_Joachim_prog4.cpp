@@ -1,11 +1,11 @@
-#include"Fraction_Isaac.h"
-#include<iostream>
-#include<fstream>
-#include<cstdlib> // rand()
+#include "Fraction_Isaac.h"
+#include <iostream>
+#include <fstream>
+#include <cstdlib> // rand()
 #include <sstream>
 using namespace std;
 
-// Purpose:  Sort an array of fractions from least to greatest
+// Purpose: Sort an array of fractions from least to greatest
 // Input:  An array of fractions, along with the number of fractions to sort
 
 void sort(Fraction [], int);
@@ -30,19 +30,19 @@ int main(){
     
     // Calculate a sum, difference, product, and quotient
     // C++ provides a default assignment operator for a class you define
-       sum = f1 + f3;
+      sum = f1 + f3;
       difference = f4 - f2;
       product = f1 * f2;
-     quotient = f5 / f3;
+      quotient = f5 / f3;
     
     
     
      //Display the results
-    outfile << f1 << " + " << f3 << " = " << sum <<endl << endl;
+    outfile << f1 << " + " << f3 << " = " << sum << endl << endl;
    
-    outfile <<  f4 << " - " << f2 << " = " << difference <<endl << endl;
+    outfile <<  f4 << " - " << f2 << " = " << difference << endl << endl;
  
-    outfile << f1 << " * " << f2 << " = " << product << endl<< endl;
+    outfile << f1 << " * " << f2 << " = " << product << endl << endl;
     
     outfile << f5 << " divided by " << f3 << " = " << quotient << endl << endl;
   
@@ -82,69 +82,25 @@ int main(){
      system("pause");
      return 0;
      }
-     // Write the body of the sort function here
 
-/*
-  void sort(Fraction f[], int length) {
-    int key = 0;
-    int i = 0;
-    for(int j =1; j < length; j++){
-    key = (f[j].getNumerator() / f[j].getDenominator());
-        i=j-1;
-        while(f[i].getNumerator() / f[i].getDenominator() > key && i>=0){
-            f[i+1] = f[i];
-            i--;
-        }
-        f[i+1]=f[j];
-    }
-}
+// Write the body of the sort function here:
+// Insertion sort that sorts the randomly generated fractions.
+void sort(Fraction f[], int size){
+    
+    int j;
+    Fraction temp;
 
-*/
-
-
-/*
-void sort(Fraction f[], int arr_size) {
-   
-    if(arr_size > 1){
-        int size = arr_size;
-        for(int i = 1; i < size; ++i){
-            int j = i - 1;
-            Fraction key2 = f[i];
-            int  key = (f[i].getNumerator()/f[i].getDenominator());
-            while(j >= 0 && (f[j].getNumerator()/f[j].getDenominator()) > key){
-                f[j+1] = f[j];
-                --j;
-            }
-            f[j+1] = key2;
+    for(int index = 1; index < size; index++){
+        j=index;
+        
+        while(j > 0 && (f[j].toDecimal() < (f[j-1].toDecimal()))){
+            //swap
+            
+            temp = f[j];
+            f[j] = f[j-1];
+            f[j-1] = temp;
+            j--;
+            
         }
     }
-}
-*/
-
-
-
-void sort(Fraction f[], int n)
-{
-    // Base case
-    if (n <= 1)
-        return;
-    
-    // Sort first n-1 elements
-    sort( f, n-1 );
-    
-    // Insert last element at its correct position
-    // in sorted array.
-    int last = static_cast<double>(f[n-1].getNumerator()/f[n-1].getDenominator());
-    Fraction last2 = f[n-1];
-    int j = n-2;
-    
-    /* Move elements of arr[0..i-1], that are
-     greater than key, to one position ahead
-     of their current position */
-    while (j >= 0 && static_cast<double>(f[j].getNumerator()/f[j].getDenominator()) > last)
-    {
-        f[j+1] = f[j];
-        j--;
-    }
-    f[j+1] = last2;
 }
